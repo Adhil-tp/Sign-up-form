@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        @font-face {
+            font-family:Norse;
+            src: url(Norse-Bold.otf) format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            background-color: rgba(0, 0, 0, 0.911);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        .main {
+            min-height: 100vh;
+            width: 60%;
+            display: flex; /* Add this to make the children flex items */
+        }
+        .img-side {
+            background-image: url(images/odinbg.jpg); 
+            background-size: cover;
+            background-position: center;
+            flex: 2;
+            background-size: cover;
+        }
+        /* Add styles for the other side of the form */
+        .form-side {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            flex: 3; /* This allows the form side to take up the available space */
+            /* Add additional styling for the form side if needed */
+            background-color: rgba(255, 255, 255, 0.979);
+        }
+        .name-inputs, .mail-and-num, .password{
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-bottom: 15px;
+        }
+        .paragraph, .create-account, .login{
+            margin: 0px 40px;
+        }
+        .paragraph{
+            margin-right: 20px;
+        }
+        .login a{
+            color: #596D48;
+        }
+        .paragraph > p{
+            font-weight:bold ;
+        }
+        .create-account{
+            width: 10rem;
+            background-color: #596D48;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: small;
+        }
+        form input {
+            width: 80%;
+            height: 5px;
+            padding: 8px;
+            margin-bottom: 1px;
+            border-radius: 3px;
+            border: 2px solid #E5E7EB ;
+            box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+        }
+        input:focus {
+            border: 1px solid #596D48 !important; /* Added !important to ensure specificity */
+            outline: none; /* Remove default focus outline */
+        }
+        input:user-valid {
+            border: 1px solid #596D48;
+        }
+        .form-box{
+            background-color: white;
+            box-shadow: 0 10px 10px -20px rgba(0, 0, 0, 0.8), 0 10px 9px -10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .odin{
+            font-family: Norse, sans-serif;
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            color: white;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.521);
+            font-size: xx-large;
+        }
+        .odin img{
+            width: 50px;
+        }
+        .sections{
+            display: flex;
+            flex-direction: column;
+        }
+        .pass-mismatch{
+            color: red;
+            font-size: smaller;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="img-side">
+            <!-- Content for the image side if needed -->
+            <div class="odin">
+                <img src="images/odin-lined (1).png" alt="">
+                <h1>ODIN</h1>
+            </div>
+        </div>
+        <div class="form-side">
+            <!-- Content for the form side if needed -->
+            <div class="paragraph">
+                <p>
+                    This is not a real online service! You know you need
+                    something like this in your lifr to help you realize your 
+                    deepesrt dreams.
+                    Sign up <em>now</em> to get started.
+                </p>
+                <p>You <em>know</em> you want to.</p>
+            </div>
+            <form action="" id="form">
+                <div class="form-box">
+                    <h3>Let's do this!</h3>
+                    <div class="name-inputs">
+                        <div class="sections">
+                            <label for="first-name">FIRST NAME</label>
+                            <input type="text" name="first-name" id="first-name" minlength="5" maxlength="20" required>
+                        </div>
+                        <div class="sections">
+                            <label for="last-name">LAST NAME</label>
+                            <input type="text" name="last-name" id="last-name" >
+                    </div>
+                </div>
+                <div class="mail-and-num">
+                    <div class="sections">
+                        <label for="mail">EMAIL</label>
+                        <input type="email" name="mail" id="mail" required>
+                    </div>
+                    <div class="sections">
+                        <label for="number">PHONE NUMBER</label>
+                        <input type="tel" pattern="[0-9]{10}" name="number" id="number" inputmode="numeric" title="Please enter a 10 digit mobile number" required>
+                    </div>
+                </div>
+                <div class="password">
+                    <div class="sections">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <div class="sections">
+                        <label for="confirm-password">CONFIRM PASSWORD</label>
+                        <input type="password" name="confirm-password" id="confirm-password" required>
+                        <span class="pass-mismatch pass-error">    </span>
+                    </div>
+                </div>
+            </div>
+            <button class="create-account" type="submit">Create Account</button>
+            </form>
+            <p class="login">Already have an account? <a href="#">Log in</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
