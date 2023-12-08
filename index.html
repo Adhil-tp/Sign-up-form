@@ -20,13 +20,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 0;
             margin: 0;
         }
         .main {
             min-height: 100vh;
             width: 60%;
-            display: flex; /* Add this to make the children flex items */
+            display: flex;
+             /* Add this to make the children flex items */
+             @media (max-width: 795px) {
+                flex-direction: column;
+
+             }
         }
         .img-side {
             background-image: url(images/odinbg.jpg); 
@@ -48,9 +54,17 @@
         }
         .name-inputs, .mail-and-num, .password{
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             width: 80%;
+            margin-left: 40px;
             margin-bottom: 15px;
+
+            @media (min-width: 795px) {
+                flex-direction: row; /* On larger screens, show labels and inputs in a row */
+                margin-left: 0px;
+                justify-content: space-between;
+              }
         }
         .paragraph, .create-account, .login{
             margin: 0px 40px;
@@ -115,6 +129,13 @@
             height: 150px;
             background-color: rgba(0, 0, 0, 0.521);
             font-size: xx-large;
+
+            @media (max-width: 795px) {
+                justify-content: center;
+                align-items: center;
+                margin-top: auto;
+                height: 200px;
+             }
         }
         .odin img{
             width: 50px;
